@@ -22,7 +22,7 @@ from django.views.decorators.http import require_POST
 
 from adminsortable.fields import SortableForeignKey
 from adminsortable.models import SortableMixin
-from adminsortable.utils import get_is_sortable
+from adminsortable.utils import diff, get_is_sortable
 
 STATIC_URL = settings.STATIC_URL
 
@@ -352,6 +352,20 @@ class SortableAdmin(SortableAdminBase, ModelAdmin):
                         objects_to_update.append(obj)
                     start_index += step
 
+                old_object = objects_dict[str(objects_list[old_index])]
+                last_object = objects_dict[str(objects_list[new_index])]
+                last_object_position = getattr(last_object, order_field_name)
+
+                objects_to_update = []
+                start_index = start_index * (old_index + 1)
+                for index in objects_list[old_index+1:new_index+1]:
+                    obj = objects_dict[index]
+                    setattr(obj, order_field_name, start_index)
+                    objects_to_update.append(obj)
+                    start_index += step
+                setattr(old_object, order_field_name, start_index)
+                objects_to_update.append(old_object)
+                # Update all objects in one operation
                 qs.bulk_update(objects_to_update, [order_field_name])
                 response = {'objects_sorted': True}
 
