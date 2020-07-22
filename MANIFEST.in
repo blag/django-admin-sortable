@@ -2,3 +2,7 @@ recursive-include adminsortable/static *
 recursive-include adminsortable/templates *
 recursive-include adminsortable/locale *
 prune sample_project
+prune samples
+prune templates
+prune manage.py
+prune database

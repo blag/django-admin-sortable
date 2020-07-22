@@ -105,10 +105,10 @@ MIDDLEWARE = [
 if django.VERSION < (1, 10):
     MIDDLEWARE_CLASSES = MIDDLEWARE
 
-ROOT_URLCONF = 'sample_project.urls'
+ROOT_URLCONF = 'test_project.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'sample_project.wsgi.application'
+WSGI_APPLICATION = 'test_project.wsgi.application'
 
 TEMPLATES = [
     {

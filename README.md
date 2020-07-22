@@ -66,7 +66,7 @@ location you serve static files from.
 
 
 ### Testing
-Have a look at the included sample_project to see working examples.
+Have a look at the included samples app to see working examples.
 The login credentials for admin are: admin/admin
 
 When a model is sortable, a tool-area link will be added that says "Change Order".

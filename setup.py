@@ -24,7 +24,12 @@ setup(
     long_description=README,
     long_description_content_type='text/markdown',
     name='django-admin-sortable',
-    packages=find_packages(exclude=['sample_project']),
+    packages=find_packages(exclude=[
+        'database',
+        'samples',
+        'templates',
+        'test_project',
+    ]),
     url='https://github.com/iambrandontaylor/django-admin-sortable',
     version=__import__('adminsortable').__version__,
     zip_safe=False

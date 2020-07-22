@@ -7,8 +7,8 @@ python:
     - "3.8"
 
 env:
-    - DJANGO_VERSION=2.2 SAMPLE_PROJECT=sample_project
-    - DJANGO_VERSION=3.0 SAMPLE_PROJECT=sample_project
+    - DJANGO_VERSION=2.2
+    - DJANGO_VERSION=3.0
 
 branches:
     only:
@@ -18,13 +18,12 @@ matrix:
     exclude:
         -
             python: "3.5"
-            env: DJANGO_VERSION=3.0 SAMPLE_PROJECT=sample_project
+            env: DJANGO_VERSION=3.0
 
 install:
     - pip install coveralls django==$DJANGO_VERSION
 
 script:
-    - cd $SAMPLE_PROJECT
     - coverage run manage.py test
 
 after_success:

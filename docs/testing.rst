@@ -1,7 +1,7 @@
 Testing
 =======
 
-Have a look at the included :doc:`/sample_project` directory to see a working project. The login credentials for admin are: admin/admin
+The root directory is also a working Django project. The login credentials are: admin/admin
 
 When a model is sortable, a tool-area link will be added that says "Change Order". Click this link, and you will be taken to the custom view where you can drag-and-drop the records into order.
 
